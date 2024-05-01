@@ -28,20 +28,33 @@
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
 
+Авторизация
+
 ![Вход](https://github.com/StasAlginin/gitlab-hw/blob/main/img/admin.png)
+
+
+
 
 ### Задание 2
 
 `Приведите ответ в свободной форме........`
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
+Логи
 
 ![Логи](https://github.com/StasAlginin/gitlab-hw/blob/main/img/agentlogs.png)
+
+Хосты
+
 ![Хосты](https://github.com/StasAlginin/gitlab-hw/blob/main/img/hosts.png)
+
+Последние данные о хостах
+
 ![Последние данные о хостах](https://github.com/StasAlginin/gitlab-hw/blob/main/img/latestdata.png)
 
 
 Команды GitHub
+
 Необходимо поместить все скрины в img/ после чего:
 sudo git add admin.png 
 sudo git add agentlogs.png
