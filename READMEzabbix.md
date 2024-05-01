@@ -40,6 +40,7 @@
 `Приведите ответ в свободной форме........`
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
+
 Логи
 
 ![Логи](https://github.com/StasAlginin/gitlab-hw/blob/main/img/agentlogs.png)
@@ -56,10 +57,17 @@
 Команды GitHub
 
 Необходимо поместить все скрины в img/ после чего:
+
 sudo git add admin.png 
+
 sudo git add agentlogs.png
+
 sudo git add hosts.png
+
 sudo git add latestdata.png
+
 sudo git add READMIzabbix.md
+
 sudo git commit -m '1 commit'
+
 sudo git push origin
