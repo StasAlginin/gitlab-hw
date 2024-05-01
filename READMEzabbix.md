@@ -28,7 +28,7 @@
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
 
-
+![Вход](https://github.com/StasAlginin/gitlab-hw/blob/main/img/admin.png)
 
 ### Задание 2
 
@@ -36,3 +36,17 @@
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
 
+![Логи](https://github.com/StasAlginin/gitlab-hw/blob/main/img/agentlogs.png)
+![Хосты](https://github.com/StasAlginin/gitlab-hw/blob/main/img/hosts.png)
+![Последние данные о хостах](https://github.com/StasAlginin/gitlab-hw/blob/main/img/latestdata.png)
+
+
+Команды GitHub
+Необходимо поместить все скрины в img/ после чего:
+sudo git add admin.png 
+sudo git add agentlogs.png
+sudo git add hosts.png
+sudo git add latestdata.png
+sudo git add READMIzabbix.md
+sudo git commit -m '1 commit'
+sudo git push origin
