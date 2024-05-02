@@ -28,46 +28,34 @@
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
 
-Авторизация
+Шаблон №1
 
-![Вход](https://github.com/StasAlginin/gitlab-hw/blob/main/img/admin.png)
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/1.png)
+
+Шаблон №2
+
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/1.2.png)
 
 
 
-
-### Задание 2
+### Задание 2-3
 
 `Приведите ответ в свободной форме........`
 
 1. `Заполните здесь этапы выполнения, если требуется ....`
 
-Логи
+Привязки шаблонов
 
-![Логи](https://github.com/StasAlginin/gitlab-hw/blob/main/img/agentlogs.png)
+![Привязки](https://github.com/StasAlginin/gitlab-hw/blob/main/img/2-3.png)
 
-Хосты
+### Задание 4
 
-![Хосты](https://github.com/StasAlginin/gitlab-hw/blob/main/img/hosts.png)
+`Приведите ответ в свободной форме........`
 
-Последние данные о хостах
+1. `Заполните здесь этапы выполнения, если требуется ....`
 
-![Последние данные о хостах](https://github.com/StasAlginin/gitlab-hw/blob/main/img/latestdata.png)
+Скриншот дашборда
+
+![Дашборд](https://github.com/StasAlginin/gitlab-hw/blob/main/img/4.png)
 
 
-Команды GitHub
-
-Необходимо поместить все скрины в img/ после чего:
-
-sudo git add admin.png 
-
-sudo git add agentlogs.png
-
-sudo git add hosts.png
-
-sudo git add latestdata.png
-
-sudo git add READMIzabbix.md
-
-sudo git commit -m '1 commit'
-
-sudo git push origin
