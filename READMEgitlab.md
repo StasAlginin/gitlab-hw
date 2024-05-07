@@ -24,12 +24,16 @@
 
 ### Задание 1
 
-`Приведите ответ в свободной форме........`
+Настройка раннера:
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-
-
-
+![ranner](github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
 
 ### Задание 2
 
+1) Раннер
+
+![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/runner.jpeg)
+
+2) Выполнение
+
+![pobeda](https://github.com/StasAlginin/gitlab-hw/blob/main/img/runner.jpeg)
