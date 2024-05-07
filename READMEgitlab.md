@@ -36,4 +36,4 @@
 
 2) Выполнение
 
-![pobeda](https://github.com/StasAlginin/gitlab-hw/blob/main/img/runner.jpeg)
+![pobeda](https://github.com/StasAlginin/gitlab-hw/blob/main/img/pobeda.jpeg)
