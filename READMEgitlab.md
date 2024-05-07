@@ -26,7 +26,7 @@
 
 Настройка раннера:
 
-![ranner](github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
+![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
 
 ### Задание 2
 
