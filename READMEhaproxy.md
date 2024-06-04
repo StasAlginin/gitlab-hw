@@ -24,16 +24,122 @@
 
 ### Задание 1
 
-Настройка раннера:
+Код и скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy:
 
-![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
+
+sudo apt install haproxy -y
+sudo nano /etc/haproxy/haproxy.cfg
+Вносим:
+listen stats  # веб-страница со статистикой
+        bind                    :888
+        mode                    http
+        stats                   enable
+        stats uri               /stats
+        stats refresh           5s
+        stats realm             Haproxy\ Statistics
+
+
+frontend example  # секция фронтенд
+        mode http
+        bind :8088
+        #default_backend web_servers
+        acl ACL_example.com hdr(host) -i example.com
+        use_backend web_servers if ACL_example.com
+
+
+backend web_servers    # секция бэкенд
+        mode http
+        balance roundrobin 4
+        option httpchk
+        http-check send meth GET uri /index.html
+        server s1 127.0.0.1:8888 check
+        server s2 127.0.0.1:9999 check
+
+
+
+
+listen web_tcp
+
+
+        bind :1325
+
+
+        server s1 127.0.0.1:8888 check inter 3s
+        server s2 127.0.0.1:9999 check inter 3s
+
+
+После
+sudo systemctl reload haproxy.service
+curl http://127.0.0.1:8080
+
+
+![one](https://github.com/StasAlginin/gitlab-hw/blob/main/img/one.jpeg)
 
 ### Задание 2
 
-1) Раннер
+Код и скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него:
 
-![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/runner.jpeg)
 
-2) Выполнение
+sudo apt install curl
+sudo mkdir http1
+sudo mkdir http2
+sudo mkdir http3
+С разных вкладок
+cd http1
+cd http2
+cd http3
+И во всех 3х директориях
+sudo nano index.html
+Вносим
+Server 1 Port 8888
+Server 1 Port 9999
+Server 1 Port 7777
+После
+sudo nano /etc/nginx/conf.d/example-http.conf
+Вносим
+include /etc/nginx/include/upstream.inc;
 
-![pobeda](https://github.com/StasAlginin/gitlab-hw/blob/main/img/pobeda.jpeg)
+
+server {
+   listen       80;
+
+
+   server_name  example.local;
+
+
+   access_log   /var/log/nginx/example-http.com-acess.log;
+   error_log    /var/log/nginx/example-http.com-error.log;
+
+
+   location / {
+                proxy_pass      http://example_app;
+
+
+   }
+
+
+}
+
+
+После
+sudo nano /etc/nginx/include/upstream.inc
+Вносим
+upstream example_app {
+
+
+        server 127.0.0.1:8888 weight=2;
+        server 127.0.0.1:9999 weight=3;
+        server 127.0.0.1:7777 weight=4;
+
+
+}
+
+
+После
+sudo nginx -t
+sudo systemctl reload nginx.service 
+sudo curl -H 'Host: example-http.com' http://localhost
+
+
+![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two.jpeg)
+
