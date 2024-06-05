@@ -24,16 +24,248 @@
 
 ### Задание 1
 
-Cкриншот, где виден процесс настройки маршрутизатора:
+Cкриншот, c маршрутизатора:
 
-![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
+![cisco](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cisco.jpeg)
 
 ### Задание 2
 
-1) Раннер
 
-![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/runner.jpeg)
+sudo apt update 
 
-2) Выполнение
+sudo apt upgrade
 
-![pobeda](https://github.com/StasAlginin/gitlab-hw/blob/main/img/pobeda.jpeg)
+sudo apt install curl -y
+
+sudo ufw enable
+
+sudo ufw allow http
+
+sudo ufw allow 80
+
+sudo ufw allow https
+
+sudo ufw allow 443
+
+sudo ufw allow ftp
+
+sudo ufw allow from 172.16.17.148
+
+sudo ufw status 
+
+sudo apt install nginx
+
+sudo nano /var/www/html/index.nginx-debian.html
+
+На 1 VM вносим в файл:
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>VM1</title>
+
+</head>
+
+<body>
+
+    <h1>ITS MY VM1</h1>
+
+</body>
+
+</html>
+
+
+И так же:
+
+
+sudo nano /var/www/html/scriptchek.sh
+
+Вносим в файл:
+
+
+#!/bin/bash  
+
+curl 172.16.17.147:80 || exit 1 
+
+[[ -f index.nginx-debian.html ]] || exit 1
+
+
+После:
+
+sudo systemctl restart nginx.service 
+
+sudo apt install keepalived
+
+sudo nano /etc/keepalived/keepalived.conf
+
+Вносим в файл:
+
+
+
+vrrp_script chk_myscript {
+
+       script       "/var/www/html/scriptchek.sh"
+
+       interval 3
+
+       weight 2
+
+}
+
+
+
+
+
+vrrp_instance VI_1 {
+
+        state MASTER
+
+        interface enp0s3
+
+        virtual_router_id 235
+
+        priority 255
+
+        advert_int 1
+
+
+
+
+
+        virtual_ipaddress {
+
+              172.16.17.235/24
+
+        }
+
+        track_script {
+
+                   chk_myscript
+
+        }
+
+}
+
+После:
+
+sudo systemctl start keepalived.service 
+
+sudo systemctl status keepalived.service 
+
+sudo ufw allow from 172.16.17.235 (Виртуальный IP)
+
+
+
+
+
+Настройка 2 виртуальной машины отличается лишь:
+
+
+sudo ufw allow from 172.16.17.147 вместо 148
+
+sudo nano /var/www/html/index.nginx-debian.html
+
+
+
+Вносим в файл:
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>VM2</title>
+
+</head>
+
+<body>
+
+    <h1>ITS MY VM2</h1>
+
+</body>
+
+</html>
+
+
+
+
+И так же:
+
+sudo nano /etc/keepalived/keepalived.conf
+
+
+Вносим в файл:
+
+
+rrp_script chk_myscript {
+
+       script       "/var/www/html/scriptchek.sh"
+
+       interval 3
+
+       weight 2
+
+}
+
+
+
+
+vrrp_instance VI_1 {
+
+        state BACKUP
+
+        interface enp0s3
+
+        virtual_router_id 235
+
+        priority 200
+
+        advert_int 1
+
+
+
+
+
+        virtual_ipaddress {
+
+              172.16.17.235/24
+
+        }
+
+        track_script {
+
+                   chk_myscript
+
+        }
+
+
+
+}
+
+
+Скриншоты 1 VM когда keepalived MASTER является 1VM
+
+
+![1VM1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/1VM_its_my_vm1.jpeg)
+
+И так же переходим по виртуальному IP адресу на 2 VM:
+
+![1VM2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/1VM_its_my_vm2.jpeg)
+
+
+После отключаем nginx на 1 VM
+
+Скриншоты с 1 VM:
+
+![1VM2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/2VM_its_my_vm1.jpeg)
+
+
+И так же переходим по виртуальному IP адресу на 2 VM:
+
+![2VM2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/2VM_its_my_vm2.jpeg)
