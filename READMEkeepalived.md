@@ -24,7 +24,7 @@
 
 ### Задание 1
 
-Настройка раннера:
+Cкриншот, где виден процесс настройки маршрутизатора:
 
 ![ranner](https://github.com/StasAlginin/gitlab-hw/blob/main/img/nastroyki.jpeg)
 
