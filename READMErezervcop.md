@@ -24,197 +24,66 @@
 
 ### Задание 1
 
-Код и скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy:
+Cкриншот с командой и результатом ее выполнения:
 
+sudo rsync -avP --checksum --exclude='.*' /home/algininss/ /tmp/backup
 
-sudo apt install haproxy -y
-
-sudo nano /etc/haproxy/haproxy.cfg
-
-Вносим:
-
-listen stats  # веб-страница со статистикой
-
-        bind                    :888
-
-        mode                    http
-
-        stats                   enable
-
-        stats uri               /stats
-
-        stats refresh           5s
-
-        stats realm             Haproxy\ Statistics
-
-
-
-
-
-
-frontend example  # секция фронтенд
-
-        mode http
-
-        bind :8088
-
-        #default_backend web_servers
-
-        acl ACL_example.com hdr(host) -i example.com
-
-        use_backend web_servers if ACL_example.com
-
-
-
-
-
-backend web_servers    # секция бэкенд
-
-        mode http
-
-        balance roundrobin 4
-
-        option httpchk
-
-        http-check send meth GET uri /index.html
-
-        server s1 127.0.0.1:8888 check
-
-        server s2 127.0.0.1:9999 check
-
-
-
-listen web_tcp
-
-        bind :1325
-
-        server s1 127.0.0.1:8888 check inter 3s
-        server s2 127.0.0.1:9999 check inter 3s
-
-
-После
-
-sudo systemctl reload haproxy.service
-
-curl http://127.0.0.1:8080
-
-
-![one](https://github.com/StasAlginin/gitlab-hw/blob/main/img/one.jpeg)
+![one](https://github.com/StasAlginin/gitlab-hw/blob/main/img/one1.jpeg)
 
 ### Задание 2
 
-Код и скриншоты, где видно перенаправление запросов на разные серверы при обращении к HAProxy c использованием домена example.local и без него:
+Aайл backup_script.sh и скриншот с результатом работы утилиты:
 
 
-sudo apt install curl
+sudo mkdir rsyn
 
-sudo mkdir http1
+sudo nano backup_script.sh
 
-sudo mkdir http2
 
-sudo mkdir http3
+Вносим:
 
-С разных вкладок
+!/bin/bash
 
-cd http1
 
-cd http2
+# Определяем источник и цель для rsync
 
-cd http3
 
-И во всех 3х директориях
+SOURCE="/home/algininss/"
 
-sudo nano index.html
+TARGET="/tmp/backup/"
 
-Вносим
 
-Server 1 Port 8888
+# Создаем зеркальную резервную копию домашней директории
 
-Server 1 Port 9999
 
-Server 1 Port 7777
+rsync -av --delete $SOURCE $TARGET
 
-После
 
-sudo nano /etc/nginx/conf.d/example-http.conf
+# Проверяем статус выполнения rsync и записываем результат в системный лог
 
-Вносим
 
-include /etc/nginx/include/upstream.inc;
+if [ $? -eq 0 ]; then
 
+    logger "Резервное копирование успешно завершено"
 
+else
 
+    logger "Ошибка при выполнении резервного копирования"
 
+fi
 
-server {
 
-   listen       80;
+После:
 
+sudo chmod +x backup_script.sh
 
+sudo crontab -e
 
 
+В конце файла вносим:
 
-   server_name  example.local;
+0 2 * * * /путь_к_вашему_скрипту/backup_script.sh
 
 
-
-
-
-   access_log   /var/log/nginx/example-http.com-acess.log;
-
-   error_log    /var/log/nginx/example-http.com-error.log;
-
-
-
-
-
-   location / {
-
-                proxy_pass      http://example_app;
-
-
-
-
-
-   }
-
-
-
-
-}
-
-
-После
-
-sudo nano /etc/nginx/include/upstream.inc
-
-Вносим
-
-upstream example_app {
-
-
-
-
-        server 127.0.0.1:8888 weight=2;
-
-        server 127.0.0.1:9999 weight=3;
-
-        server 127.0.0.1:7777 weight=4;
-
-
-
-
-}
-
-
-После
-
-sudo nginx -t
-
-sudo systemctl reload nginx.service 
-
-sudo curl -H 'Host: example-http.com' http://localhost
-
-
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two.jpeg)
+![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
 
