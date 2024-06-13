@@ -330,7 +330,7 @@ exit
 ![4](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake4.png)
 
 
-![5](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake6.png)
+![5](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake5.png)
 
 
 Отключаем 1VM
