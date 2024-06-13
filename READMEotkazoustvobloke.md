@@ -318,22 +318,25 @@ systemctl restart nginx
 exit
 
 
-![one](https://github.com/StasAlginin/gitlab-hw/blob/main/img/one1.jpeg)
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake1.png)
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake2.png)
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake3.png)
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+![4](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake4.png)
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+![5](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake6.png)
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+Отключаем 1VM
 
 
-![two](https://github.com/StasAlginin/gitlab-hw/blob/main/img/two1.png)
+![6](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake6.png)
+
+
+![7](https://github.com/StasAlginin/gitlab-hw/blob/main/img/otkazoustvoblake7.png)
