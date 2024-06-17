@@ -63,7 +63,7 @@ sudo apt install memcached
 
 sudo systemctl status memcached.service
 
-[1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash1.png)
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash1.png)
 
 
 
@@ -88,7 +88,7 @@ set name 0 5 4
 
 get name
 
-[2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash2.png)
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash2.png)
 
 
 
@@ -131,4 +131,4 @@ HKEYS bike
 
 HVALS bike
 
-[3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash3.png)
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/cash3.png)
