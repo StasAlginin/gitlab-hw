@@ -64,11 +64,11 @@ CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'Toporis1999';
 
 SELECT user, host FROM mysql.user;
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/rabotasdannimi1.jpeg)
 
 RANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/rabotasdannimi2.jpeg)
 
 EXIT;
 
@@ -80,7 +80,7 @@ CREATE DATABASE sakila;
 
 SHOW DATABASES;
 
-![3]()
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/rabotasdannimi3.jpeg)
 
 EXIT;
 
@@ -94,7 +94,7 @@ mysql -u sys_temp -p sakila
 
 SHOW TABLES;
 
-![4]()
+![4](https://github.com/StasAlginin/gitlab-hw/blob/main/img/rabotasdannimi4.jpeg)
 
 
 ###Задание 2
@@ -110,4 +110,4 @@ SHOW TABLES;
 
 SELECT table_name, column_name FROM information_schema.key_column_usage WHERE constraint_name = 'PRIMARY' AND table_schema = 'sakila';
 
-![5]()
+![5](https://github.com/StasAlginin/gitlab-hw/blob/main/img/rabotasdannimi5.jpeg)
