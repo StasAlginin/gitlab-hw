@@ -33,7 +33,7 @@ SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT
 ![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(1).jpeg)
 
 
-###Задание 2
+### Задание 2
 
 Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года включительно и стоимость которых превышает 10.00.
 
@@ -44,7 +44,7 @@ SELECT * FROM payment WHERE payment_date BETWEEN '2005-06-15 00:00:00' AND '2005
 ![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(2).jpeg)
 
 
-###Задание 3
+### Задание 3
 
 Получите последние пять аренд фильмов.
 
@@ -55,7 +55,7 @@ SELECT * FROM rental ORDER BY rental_date DESC LIMIT 5;
 ![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(3).jpeg)
 
 
-###Задание 4
+### Задание 4
 
 Одним запросом получите активных покупателей, имена которых Kelly или Willie.
 
