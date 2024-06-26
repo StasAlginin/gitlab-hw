@@ -60,7 +60,7 @@ GROUP BY staff.first_name, staff.last_name, city.city
 HAVING COUNT(customer.customer_id) > 300;
 
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql2(1).jpeg)
 
 
 ### Задание 2
@@ -75,7 +75,7 @@ FROM film
 
 WHERE length > (SELECT AVG(length) FROM film);
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql2(2).jpeg)
 
 
 ### Задание 3
@@ -100,5 +100,5 @@ ORDER BY SUM(amount) DESC
 
 LIMIT 1;
 
-![3]()
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql2(3).jpeg)
 
