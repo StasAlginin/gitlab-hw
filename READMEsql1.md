@@ -30,7 +30,7 @@
 
 SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(1).jpeg)
 
 
 ###Задание 2
@@ -41,7 +41,7 @@ SELECT DISTINCT district FROM address WHERE district LIKE 'K%a' AND district NOT
 
 SELECT * FROM payment WHERE payment_date BETWEEN '2005-06-15 00:00:00' AND '2005-06-18 23:59:59' AND amount > 10.00 ORDER BY payment_date DESC;
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(2).jpeg)
 
 
 ###Задание 3
@@ -52,7 +52,7 @@ SELECT * FROM payment WHERE payment_date BETWEEN '2005-06-15 00:00:00' AND '2005
 
 SELECT * FROM rental ORDER BY rental_date DESC LIMIT 5;
 
-![3]()
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(3).jpeg)
 
 
 ###Задание 4
@@ -78,5 +78,5 @@ FROM customer
 
 WHERE first_name IN ('Kelly', 'Willie') AND active = 1;
 
-![4]()
+![4](https://github.com/StasAlginin/gitlab-hw/blob/main/img/sql1(4).jpeg)
 
