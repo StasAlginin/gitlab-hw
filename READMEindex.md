@@ -93,4 +93,5 @@ WHERE p.payment_date >= '2005-07-30' AND p.payment_date < DATE_ADD('2005-07-30',
 
 ![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/index2.jpeg)
 
+___
 
