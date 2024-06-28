@@ -48,7 +48,7 @@ FROM
         table_schema = 'sakila') AS sum_value_table;
 
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/index1.jpeg)
 
 
 ### Задание 2
@@ -92,6 +92,6 @@ JOIN film f ON i.film_id = f.film_id
 WHERE p.payment_date = '2005-07-30';
 
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/index2.jpeg)
 
 
