@@ -99,7 +99,7 @@ read_only = 1
 
 mysql -u root -p
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik1.png)
 
 Далее создаем пользователя на master и выдаем ему права:
 
@@ -109,11 +109,11 @@ GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
 
 SHOW GRANTS FOR replication@'%';
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik2.png)
 
 SHOW MASTER STATUS;
 
-![3]()
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik3.png)
 
 Далее на slave выполняем команды, в которых необходимо указать фай и позицию как на скрине выше:
 
@@ -125,13 +125,13 @@ CHANGE MASTER TO
 
 -> MASTER_LOG_POS=158;
 
-![4]()
+![4](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik4.png)
 
 START REPLICA;
 
 SHOW SLAVE STATUS\G
 
-![5]()
+![5](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik5.png)
 
 Проверяем что ошибок нет
 
@@ -141,11 +141,11 @@ CREATE database sakila;
 
 show databases;
 
-![6]()
+![6](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik6.png)
 
 И проверяем что она копировалась на slave
 
-![7]()
+![7](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik7.png)
 
 После создаем таблицу в базе данных sakila на master
 
@@ -163,12 +163,12 @@ CREATE TABLE actor (
 
 -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-![8]()
+![8](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik8.png)
 
 show tables;
 
-![9]()
+![9](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik9.png)
 
 И проверяем что таблица появилась на slave
 
-![10]()
+![10](https://github.com/StasAlginin/gitlab-hw/blob/main/img/replik10.png)
