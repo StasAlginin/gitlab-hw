@@ -44,7 +44,7 @@ su - cryptouser
 
 ls -la ~/
 
-![1]()
+![1](https://github.com/StasAlginin/gitlab-hw/blob/main/img/zashitahost1.jpeg)
 
 ### Задание 2
 
@@ -62,8 +62,8 @@ sudo apt install cryptsetup
 
 sudo fdisk /dev/sdb
 
-![2]()
+![2](https://github.com/StasAlginin/gitlab-hw/blob/main/img/zashitahost2.jpeg)
 
 sudo cryptsetup luksFormat /dev/sdb1
 
-![3]()
+![3](https://github.com/StasAlginin/gitlab-hw/blob/main/img/zashitahost3.jpeg)
