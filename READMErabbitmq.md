@@ -136,7 +136,7 @@ sudo nano consumer.py
 
 #!/usr/bin/env python
 
-# coding=utf-8
+#coding=utf-8
 
 import pika
 
@@ -166,7 +166,7 @@ sudo nano producer.py
 
 #!/usr/bin/env python
 
-# coding=utf-8
+#coding=utf-8
 
 import pika
 
@@ -459,7 +459,7 @@ Flag: virtual_host_metadata, state: enabled
 
 #!/usr/bin/env python
 
-# coding=utf-8
+#coding=utf-8
 
 import pika
 
